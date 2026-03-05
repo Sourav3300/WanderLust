@@ -2,23 +2,23 @@
 WanderLust is a full-stack web application inspired by Airbnb. It is developed using the MERN Stack (MongoDB, Express.js, React, Node.js). The application enables users to view, create, and manage listings of places to visit, along with images, prices, and descriptions.  This project showcases the development of a full-stack application.
 
 
-🚀 Features
+ Features
 
-🏠 Create, Read, Update & Delete (CRUD) Listings
+ Create, Read, Update & Delete (CRUD) Listings
 
-🖼️ Image upload and display for properties
+ Image upload and display for properties
 
-🔐 User authentication & authorization
+ User authentication & authorization
 
-💰 Price formatting and detailed property information
+ Price formatting and detailed property information
 
-📍 Location-based listing details
+ Location-based listing details
 
-📱 Responsive design for all devices
+ Responsive design for all devices
 
-⚡ RESTful API architecture
+ RESTful API architecture
 
-🛠️ Tech Stack
+ Tech Stack
 Frontend:
 
 React.js
