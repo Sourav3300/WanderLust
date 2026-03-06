@@ -1,24 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Full information</title>
-</head>
+<% layout("Layouts/boilerplate") %>
 <body>
-
-  <h2>All details : </h2>
-  <form method="get" action="/listing/<%= info._id %>/edit">
-  <p><%= info.title  %></p>
-  <p><%= info.description  %></p>
-  <p><%= info.price.toLocaleString("en-BD")  %></p>
-  <p><%= info.location  %></p>
-  <p><%= info.country  %></p>
-
-  <button>Edit This Listing</button>
-  </form>
-  <form method="post" action="/listing/<%= info._id  %>/delete?_method=DELETE">
-    <button>Delete this listing</button>
-  </form>
+   <div class="row">
+    <div class="col-4">
+       <div class="card" style="width: 18rem;">
+       <img class="card-img-top" src="<%= info.image.url %>" alt="Card image cap">
+      <div class="card-body">
+    <h5 class="card-title mt-2"> <%= info.title  %> </h5>
+    <p class="card-text">
+      <p>
+        <%= info.description  %> <br>
+        <%= info.price.toLocaleString("en-BD")  %> <br>
+        <%= info.location  %> <br>
+        <%= info.country  %>
+      </p>
+  </div>
+  <div class="row">
+      <div class="col-4">
+        <form method="get" action="/listing/<%= info._id %>/edit">
+    <button class="btn btn-dark">Edit</button>
+    </form>
+    </div>
+    <div class="col-8">
+    <form method="post" action="/listing/<%= info._id  %>/delete?_method=DELETE">
+      <button class="btn btn-dark">Delete </button>
+    </form>
+  </div>
+     
+  </div>
+  </div>
+  </div>
+</div>
+  
+ 
 </body>
-</html>

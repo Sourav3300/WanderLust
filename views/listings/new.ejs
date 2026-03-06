@@ -1,19 +1,102 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Create new</title>
-</head>
+<% layout("Layouts/boilerplate") %> 
 <body>
-  <h2>Create new listing</h2>
-  <form method="post" action="/listings">
-    <input  type="text" name="listing[title]" placeholder="title"> <br>
-    <input  type="text" name="listing[description]" placeholder="description"> <br>
-    <input  type="text" name="listing[price]" placeholder="price"> <br>
-    <input  type="text" name="listing[location]" placeholder="location"> <br>
-    <input  type="text" name="listing[country]" placeholder="country">
-   <button>Create</button>
-  </form>
+
+  <div class="row">
+    <div class="col-8">
+      <br><br>
+      <h3>Create new listing</h3>
+      <form method="post" action="/listings" class="needs-validation" novalidate>
+
+        <!-- Title -->
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input 
+            type="text" 
+            name="listing[title]" 
+            placeholder="Add a catchy title" 
+            class="form-control" 
+            required
+          >
+          <div class="invalid-feedback">
+            Please provide a title.
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <input 
+            type="text" 
+            name="listing[description]" 
+            class="form-control" 
+            placeholder="Write something about it" 
+            required
+          >
+          <div class="invalid-feedback">
+            Please provide a description.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Image</label>
+          <input 
+            type="text" 
+            name="listing[image][url]" 
+            class="form-control" 
+            placeholder="Add url" 
+            required
+          >
+          
+        </div>
+
+        <div class="row">
+        
+          <div class="mb-3 col-4">
+            <label for="price" class="form-label">Price</label>
+            <input 
+              type="number" 
+              name="listing[price]" 
+              class="form-control" 
+              placeholder="500" 
+              required
+            >
+            <div class="invalid-feedback">
+              Please provide a valid price.
+            </div>
+          </div>
+
+          <div class="mb-3 col-8">
+            <label for="location" class="form-label">Location</label>
+            <input 
+              type="text" 
+              name="listing[location]" 
+              class="form-control" 
+              placeholder="Banani, Dhaka" 
+              required
+            >
+            <div class="invalid-feedback">
+              Please provide a location.
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="country" class="form-label">Country</label>
+          <input 
+            type="text" 
+            name="listing[country]" 
+            class="form-control" 
+            placeholder="Bangladesh" 
+            required
+          >
+          <div class="invalid-feedback">
+            Please provide a country.
+          </div>
+        </div>
+
+        <button class="btn btn-dark">Create</button>
+      </form>
+      <br>
+    </div>
+  </div>
+
 </body>
-</html>

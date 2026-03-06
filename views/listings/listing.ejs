@@ -1,20 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Listing</title>
-</head>
+<% layout("Layouts/boilerplate") %>
 <body>
-   <h1>All Listing</h1>
-   <form method="get" action="/listing/new">
+   <!-- <form method="get" action="/listing/new">
     <button>Create new</button>
-   </form>
+   </form> -->
 
-   <% for(let listing of allListing) { %>
-    <ul>
-        <li> <a  href="/<%= listing._id  %>"><%= listing.title  %></a></li>
-    </ul>
-    <% } %>
+   <div class="row  row-cols-lg- row-cols-md-3 row-cols-sm-2">
+
+<% for(let listing of allListing) { %>
+   <div class="card col" >
+       <a class="ancor" href="/<%= listing._id  %>"><img class="card-img-top" src="<%= listing.image?.url || 'https://images.unsplash.com/default.jpg' %>" alt="Card image cap"> </a> 
+        <div class="card-body">
+            <h5 class="card-title"><%= listing.title  %></h5>
+             ৳ <%= listing.price%>/Night
+            <a href="/<%= listing._id  %>" class="btn btn-primary">See</a>
+        </div>
+   </div>
+ <% } %>
+
+</div>
 </body>
-</html>

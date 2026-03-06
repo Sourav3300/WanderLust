@@ -1,0 +1,69 @@
+body{
+ font-family: "Open Sans", sans-serif;
+ display: flex;
+ flex-direction: column;
+ height: 100vh;
+}
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+.row{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-brand{
+  color: red !important;
+}
+.navbar{
+  height: 5rem;
+  background-color: white;
+}
+.nav-item {
+  font-weight: 500 !important;
+}
+
+ /* footer */
+
+.footer-info{
+  background-color: aliceblue;
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  line-height: 1.7rem;
+}
+.footer-socails{
+  font-size: large;
+}
+.f-info-links a{
+  margin-left: 5px;
+  text-decoration: none;
+  color: rgb(15, 13, 13);
+}
+.card{
+  border: none !important;
+  margin-bottom: 2rem;
+}
+.card-img-top{
+  border-radius: 1rem !important;
+  width: 100% !important;
+  object-fit: cover !important ;
+  height: 20rem;
+}
+
+.card-body{
+  padding: 0 !important;
+}
+
+.ancor :hover{
+ opacity: 0.8;
+}
+
