@@ -8,6 +8,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
+  flex: 1;
   
 }
 .row{
@@ -48,7 +49,7 @@ body{
   text-decoration: none;
   color: rgb(15, 13, 13);
 }
-.card{
+.listing-card{
   border: none !important;
   margin-bottom: 2rem;
 }
@@ -56,7 +57,7 @@ body{
   border-radius: 1rem !important;
   width: 100% !important;
   object-fit: cover !important ;
-  height: 20rem;
+  height: 15rem;
 }
 
 .card-body{
@@ -65,5 +66,8 @@ body{
 
 .ancor :hover{
  opacity: 0.8;
+}
+.Review{
+  margin-bottom: 2rem;
 }
 

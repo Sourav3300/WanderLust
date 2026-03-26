@@ -1,14 +1,10 @@
 <% layout("Layouts/boilerplate") %>
-<body>
-   <!-- <form method="get" action="/listing/new">
-    <button>Create new</button>
-   </form> -->
 
-   <div class="row  row-cols-lg- row-cols-md-3 row-cols-sm-2">
+   <div class="row  row-cols-lg-4 row-cols-md-3 row-cols-sm-2">
 
 <% for(let listing of allListing) { %>
-   <div class="card col" >
-       <a class="ancor" href="/<%= listing._id  %>"><img class="card-img-top" src="<%= listing.image?.url || 'https://images.unsplash.com/default.jpg' %>" alt="Card image cap"> </a> 
+   <div class="card col  listing-card " >
+       <a class="ancor" href="/listings/<%= listing._id  %>"><img class="card-img-top" src="<%= listing.image?.url || 'https://images.unsplash.com/default.jpg' %>" alt="Card image cap"> </a> 
         <div class="card-body">
             <h5 class="card-title"><%= listing.title  %></h5>
              ৳ <%= listing.price%>/Night
@@ -18,4 +14,3 @@
  <% } %>
 
 </div>
-</body>
