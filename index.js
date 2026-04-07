@@ -135,3 +135,6 @@ app.listen(3000,()=>{
 //   await listing1.save();
 //   console.log("Saved")
 // }) 
+app.get("/", (req, res) => {
+  res.redirect("/listings");
+});
