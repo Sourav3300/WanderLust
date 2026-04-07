@@ -1,0 +1,26 @@
+{
+  "engines": {
+    "node": "24.13.0"
+  },
+  "name": "main-projects",
+  "version": "1.0.0",
+  "description": "WanderLust is a full-stack web application inspired by Airbnb. It is developed using the MERN Stack (MongoDB, Express.js, React, Node.js). The application enables users to view, create, and manage listings of places to visit, along with images, prices, and descriptions.  This project showcases the development of a full-stack application.",
+  "homepage": "https://github.com/Sourav3300/WanderLust#readme",
+  "bugs": {
+    "url": "https://github.com/Sourav3300/WanderLust/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sourav3300/WanderLust.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
