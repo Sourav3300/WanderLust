@@ -20,6 +20,9 @@ main()
 
 let initializeData = async ()=>{
   await listing.deleteMany({});
+
+   initialData.data =  initialData.data.map((obj) => ({...obj, owner : '69c3a01d4af1a0b1a983c3cf' }));
+   console.log(initialData.data);
   await listing.insertMany(initialData.data)
 };
 

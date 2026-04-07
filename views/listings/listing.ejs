@@ -1,5 +1,100 @@
 <% layout("Layouts/boilerplate") %>
 
+<style>
+    .filters{
+        margin-top: 1rem;
+        margin-bottom: 5px;
+        display: flex;
+        flex-wrap: wrap;
+       
+    }
+    .filter{
+        text-align: center;
+        margin-right: 1rem;
+    }
+    .box {
+        height: 3rem;
+        width: 250px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* padding: 2px; */
+        border-radius: 10px;
+      
+        border: 2px solid black;
+    
+}
+</style>
+
+
+
+
+   <div class="filters">
+    <div class="filter">
+        <i class="fa-solid fa-fire"></i>
+        <p>Trending</p>
+        
+    </div>
+    <div class="filter">
+        <i class="fa-solid fa-restroom"></i>
+        <p>Rooms</p>
+        
+    </div>
+    <div class="filter">
+        <i class="fa-solid fa-city"></i>
+        <p>Iconic Cities</p>
+        
+    </div>
+    <div class="filter">
+        <i class="fa-solid fa-mountain"></i>
+        <p>Mountains</p>
+        
+    </div>
+    <div class="filter">
+        <i class="fa-brands fa-fort-awesome"></i>
+        <p>Castles</p>
+        
+    </div>
+    <div class="filter">
+        <i class="fa-solid fa-person-swimming"></i>
+        <p>Amazing Pools</p>
+        
+    </div>
+    <div class="filter">
+        <i class="fa-solid fa-tent"></i>
+        <p>Camping</p>
+        
+    </div>
+    <div class="filter">
+        <i class="fa-solid fa-building-wheat"></i>
+        <p>Farms</p>
+        
+    </div>
+    <div class="filter">
+        <i class="fa-solid fa-landmark-dome"></i>
+        <p>Dome</p>
+        
+    </div>
+    <div class="filter">
+        <i class="fa-solid fa-umbrella-beach"></i>
+        <p>Beach</p>
+        
+    </div>
+    <div class="filter">
+        <i class="fa-solid fa-sailboat"></i>
+        <p>Boats</p>
+        
+    </div>
+        
+    <div class="form-check-reverse form-switch box ">
+        <div class="tx">
+            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+            <label class="form-check-label" for="flexSwitchCheckDefault"> Display Total after taxes </label>
+
+        </div>
+        
+    </div>
+   </div>
    <div class="row  row-cols-lg-4 row-cols-md-3 row-cols-sm-2">
 
 <% for(let listing of allListing) { %>
@@ -8,9 +103,29 @@
         <div class="card-body">
             <h5 class="card-title"><%= listing.title  %></h5>
              ৳ <%= listing.price%>/Night
-            <a href="/<%= listing._id  %>" class="btn btn-primary">See</a>
+            <!-- <a href="/<%= listing._id  %>" class="btn btn-primary">See</a> -->
+            <i class="Tax-Cards" > +18% GST</i>
         </div>
    </div>
  <% } %>
 
 </div>
+<script>
+    let box = document.querySelector("#flexSwitchCheckDefault");
+    box.addEventListener("click",()=>{
+        let Tax_Cards = document.querySelectorAll(".Tax-Cards")
+       
+        for(let Tax_Card of Tax_Cards){
+            if(getComputedStyle(Tax_Card).display === "none"){
+                Tax_Card.style.display = "inline"
+            }
+            else{
+                Tax_Card.style.display = "none"
+            }
+
+        }
+    })
+    
+    
+    
+</script>

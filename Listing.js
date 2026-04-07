@@ -12,8 +12,8 @@ const listingSchema = new Schema({
     required: [true, "Description is required"]
   },
   image: {
-    filename: { type: String, default: "listingimage" },
-    url: { type: String, default: "https://images.unsplash.com/default.jpg" }
+   url : String,
+   filename : String,
   },
   price: {
     type: Number, // Number is better than String
@@ -30,7 +30,12 @@ const listingSchema = new Schema({
   reviews : [{
     type: Schema.Types.ObjectId,
     ref : "Review"
-  }]
+  }],
+  owner : {
+    type: Schema.Types.ObjectId,
+    ref : "User"
+
+  }
 }, { timestamps: true }); 
 
 

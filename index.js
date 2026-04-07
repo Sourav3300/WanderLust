@@ -1,19 +1,35 @@
+ console.log("🔥 INDEX.JS STARTED"); 
+  
+  if(process.env.NODE_ENV != "production"){
+  require("dotenv").config();
+}
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const path = require("path");
-engine = require('ejs-mate');
+const engine = require('ejs-mate');
 let methodOverride = require("method-override");
 const listings = require("./route/listing.js");
 const reviews = require("./route/review.js")
 const users = require("./route/user.js")
 const session = require("express-session");
+const MongoStore = require("connect-mongo").default;
 const flash = require("connect-flash");
 const passport = require("passport")
 const localStrategy = require("passport-local")
 const User = require("./passport.js");
+let dbUrl = process.env.ATLASDB_URL;
+
+const store = MongoStore.create({
+  mongoUrl: dbUrl,
+  crypto : {
+    secret : "mysecretcode"
+  },
+  touchAfter : 24 * 3600,
+})
 
 const sessionoptions = {
+  store,
   secret : "mysupersecretcode",
   resave : false,
   saveUninitialized : true,
@@ -43,21 +59,23 @@ passport.deserializeUser(User.deserializeUser());
 app.use((req,res,next)=>{
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
+  res.locals.currUser = req.user;
   next();
 })
 
 app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());   
 
-app.get("/DemoUser",async  (req,res)=>{
-  let user1 = new User({
-    email : "Sourav@Gmail.com",
-    username : "Sourav" + Date.now(),
-  });
+// app.get("/DemoUser",async  (req,res)=>{
+//   let user1 = new User({
+//     email : "Sourav@Gmail.com",
+//     username : "Sourav" + Date.now(),
+//   });
 
- let registerdData = await User.register(user1,"Hello world");
- res.send(registerdData);
-})
+//  let registerdData = await User.register(user1,"Hello world");
+//  res.send(registerdData);
+// })
 
 app.use("/listings",listings);
 app.use("/listings/:id/review",reviews);
@@ -70,10 +88,11 @@ app.set("views" , path.join(__dirname ,"views"));
 app.use(express.static(path.join(__dirname,"public")))
 
 
-let url = 'mongodb://127.0.0.1:27017/Wanderlust';
+// let url = 'mongodb://127.0.0.1:27017/Wanderlust';
+
 
 async function main() {
-  await mongoose.connect(url);
+  await mongoose.connect(dbUrl);
   
 };
 
