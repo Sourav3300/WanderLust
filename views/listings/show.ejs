@@ -9,7 +9,7 @@
     <h5 class="card-title mt-2"> <%= info.title  %> </h5>
     <!-- <p class="card-text"> -->
       <p>
-        <i>Owned By  <%= info.owner.username  %></i> <br>
+        <i>Owned By <%= info.owner ? info.owner.username : "Unknown" %></i> <br>
         <%= info.description  %> <br>
         <%= info.price.toLocaleString("en-BD")  %> <br>
         <%= info.location  %> <br>
