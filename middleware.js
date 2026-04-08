@@ -44,8 +44,11 @@ next();
 module.exports.ValidateError = (req,res,next) =>{
     let {error} = ListingSchema.validate(req.body);
   if(error){
+    console.error(error.message);
+    console.error(error);
+
     let msg = error.details.map((el) => el.message).join(",");
-    throw new ExpressError(404,msg)
+    throw new ExpressError(400,msg)
   }
   else{
     next();
