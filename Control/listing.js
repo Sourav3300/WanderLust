@@ -31,7 +31,8 @@ module.exports.createNewListing = async (req, res, next) => {
     console.log("FILE:", req.file);
 
     const newListing = new listing(req.body.listing);
-
+     
+      newListing.owner = req.user._id;
     // 🔥 THIS IS REQUIRED
     if (req.file) {
       newListing.image = {
@@ -39,6 +40,7 @@ module.exports.createNewListing = async (req, res, next) => {
         filename: req.file.filename
       };
     }
+
 
     await newListing.save();
 
