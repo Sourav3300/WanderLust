@@ -30,7 +30,7 @@ module.exports.createNewListing = async (req, res, next) => {
     console.log("BODY:", req.body);
     console.log("FILE:", req.file);
 
-    const newListing = new Listing(req.body.listing);
+    const newListing = new listing(req.body.listing);
 
     // 🔥 THIS IS REQUIRED
     if (req.file) {
