@@ -9,12 +9,12 @@ module.exports.signUp = async (req,res,next)=>{
 
   try{
      let {username,email,password} = req.body;
-     let user1 = new  Users({
+     let user1 = new  User({
     username,
     email
   })
 
-  let registerUser = await Users.register(user1,password);
+  let registerUser = await User.register(user1,password);
   req.login(registerUser , (err)=>{
     if(err){
       return next();
