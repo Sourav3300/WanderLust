@@ -1,4 +1,6 @@
- console.log("🔥 INDEX.JS STARTED"); 
+  const ExpressError = require("./utils/ExpressError"); 
+   
+   console.log("🔥 INDEX.JS STARTED"); 
   
   if(process.env.NODE_ENV != "production"){
   require("dotenv").config();
@@ -137,4 +139,19 @@ app.listen(3000,()=>{
 // }) 
 app.get("/", (req, res) => {
   res.redirect("/listings");
+});
+
+app.all("*", (req, res, next) => {
+  next(new ExpressError(404, "Page Not Found"));
+});
+
+app.use((err, req, res, next) => {
+  console.error("GLOBAL ERROR:");
+  console.error("message:", err.message);
+  console.error("full error:", err);
+
+  let status = err.status || 500;
+  let message = err.message || "Something went wrong";
+
+  res.status(status).send(message);
 });
