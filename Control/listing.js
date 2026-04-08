@@ -25,25 +25,33 @@ module.exports.renderShow = async (req,res)=>{
   res.render("listings/show",{info})
 };
 
-module.exports.createNewListing = async (req,res)=>{
-  if(!req.file){
-    req.flash("error","Image upload failed");
-    return res.redirect("/listings/new");
+module.exports.createNewListing = async (req, res, next) => {
+  try {
+    console.log("BODY:", req.body);
+    console.log("FILE:", req.file);
+
+    const newListing = new Listing(req.body.listing);
+
+    // 🔥 THIS IS REQUIRED
+    if (req.file) {
+      newListing.image = {
+        url: req.file.path,
+        filename: req.file.filename
+      };
+    }
+
+    await newListing.save();
+
+    req.flash("success", "New listing created");
+    res.redirect("/listings");
+
+  } catch (err) {
+    console.error("CREATE ERROR:");
+    console.error(err.message);
+    console.error(err);
+    next(err);
   }
-
-  let url = req.file.path;
-  let filename = req.file.filename;
-
-  let newListing = new listing(req.body.listing);
-  newListing.image = { url, filename };
-  newListing.owner = req.user._id;
-
-  await newListing.save();
-
-  req.flash("success","New Listing has been Created");
-  res.redirect("/listings");
 };
-
 module.exports.renderEdit = async (req, res) => {
   let { id } = req.params;
   let list = await listing.findById(id);
