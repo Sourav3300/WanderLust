@@ -4,7 +4,7 @@ module.exports.renderSingUp = (req,res)=>{
   res.render("users/user")
 };
 
-module.exports.signUp = async (req,res)=>{
+module.exports.signUp = async (req,res,next)=>{
 
 
   try{
