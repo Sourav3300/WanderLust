@@ -97,6 +97,9 @@ body {
 }
 
 @media (max-width: 768px) {
+  .box{
+    max-width: 125px;
+  }
 
   .navbar-collapse {
     padding-top: 1rem;
@@ -133,6 +136,6 @@ body {
     gap: 0.3rem;
   }
   .filter,.box{
-    font-size: 8px;
+    font-size: 10px;
   }
 }
