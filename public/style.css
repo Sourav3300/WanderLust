@@ -2,7 +2,7 @@ body{
  font-family: "Open Sans", sans-serif;
  display: flex;
  flex-direction: column;
- height: 100vh;
+ min-height: 100vh;
 }
 .container {
     display: flex;
@@ -14,7 +14,8 @@ body{
 }
 .SearchBar{
   margin: auto;
-  width: 500px;
+  width: 100%;
+  max-width: 500px;
   display: flex;
 
 }
@@ -96,7 +97,8 @@ body{
   opacity: 0.7;
 }
 .search{
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   border-radius: 20px;
   height: 2.5rem;
   padding: 10px;
@@ -104,5 +106,5 @@ body{
   outline: none;
 }
 .SearchBar{
-  margin-left: 250px;
+  margin: 0 auto;
 }
