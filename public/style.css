@@ -95,10 +95,13 @@ body {
   text-decoration: none;
   color: rgb(15, 13, 13);
 }
+.Tax-Cards{
+  display: none;
+}
 
 @media (max-width: 768px) {
   .box{
-    max-width: 125px;
+    max-width: 150px;
   }
 
   .navbar-collapse {
@@ -136,6 +139,6 @@ body {
     gap: 0.3rem;
   }
   .filter,.box{
-    font-size: 10px;
+    font-size: 9px;
   }
 }
