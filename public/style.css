@@ -132,7 +132,7 @@ body {
   .navbar-nav {
     gap: 0.3rem;
   }
-  .filter{
-    font-size: small;
+  .filter,.box{
+    font-size: 8px;
   }
 }
