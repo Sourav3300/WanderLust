@@ -96,7 +96,6 @@ body {
   color: rgb(15, 13, 13);
 }
 
-/* MOBILE FIXES */
 @media (max-width: 768px) {
 
   .navbar-collapse {
@@ -132,5 +131,8 @@ body {
 
   .navbar-nav {
     gap: 0.3rem;
+  }
+  .filter{
+    font-size: small;
   }
 }
